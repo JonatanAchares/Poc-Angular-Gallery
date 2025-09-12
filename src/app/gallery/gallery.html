@@ -1,0 +1,12 @@
+<div class="gallery">
+  <div class="card" *ngFor="let img of images" (click)="showImage(img)">
+    <img [src]="img.src" [alt]="img.title">
+    <p>{{ img.title }}</p>
+  </div>
+</div>
+
+<div class="preview" *ngIf="selectedImage">
+  <h3>Vista previa</h3>
+  <img [src]="selectedImage.src" [alt]="selectedImage.title">
+  <p>{{ selectedImage.title }}</p>
+</div>

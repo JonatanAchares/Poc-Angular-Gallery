@@ -1,0 +1,33 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.5rem;
+  text-align: center;
+  width: 200px;
+  cursor: pointer;
+  background: #fafafa;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.preview {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.preview img {
+  max-width: 400px;
+  border: 2px solid #1976d2;
+  border-radius: 8px;
+}
