@@ -16,6 +16,7 @@ import {
 import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { routes } from './app.routes';
+import { environment } from '../environments/environment';
 
 /**
  * Configuración principal de la aplicación
@@ -33,11 +34,11 @@ export const appConfig: ApplicationConfig = {
       provide: 'TMDB_CONFIG',
       useValue: {
         // API Key de TMDB
-        apiKey: '8e66921e7817eaf6b89d2ba2245a5860',
+        apiKey: environment.tmdb.apiKey,
 
         // URLs base de la API de TMDB
-        baseUrl: 'https://api.themoviedb.org/3',
-        imageBaseUrl: 'https://image.tmdb.org/t/p',
+        baseUrl: environment.tmdb.baseUrl,
+        imageBaseUrl: environment.tmdb.imageBaseUrl,
 
         // Configuraciones por defecto
         defaultImageSize: 'w500',
