@@ -14,7 +14,7 @@ import {
   provideZoneChangeDetection,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { routes } from './app.routes';
 
 /**
@@ -28,5 +28,29 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
+    provideHttpClient(withInterceptors([])),
+    {
+      provide: 'TMDB_CONFIG',
+      useValue: {
+        // API Key de TMDB
+        apiKey: '8e66921e7817eaf6b89d2ba2245a5860',
+
+        // URLs base de la API de TMDB
+        baseUrl: 'https://api.themoviedb.org/3',
+        imageBaseUrl: 'https://image.tmdb.org/t/p',
+
+        // Configuraciones por defecto
+        defaultImageSize: 'w500',
+        defaultLanguage: 'es-ES',
+
+        // Endpoints específicos
+        endpoints: {
+          search: '/search/multi',
+          trending: '/trending/all/week',
+          popular: '/movie/popular',
+          topRated: '/movie/top_rated',
+        },
+      },
+    },
   ],
 };

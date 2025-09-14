@@ -10,17 +10,19 @@ import { ImageService } from '../../services/image.service';
   styleUrls: ['./gallery.css'],
 })
 export class GalleryComponent {
-  //prueba para entender EventListeners
-  keyUpHandler(event: KeyboardEvent) {
-    console.log(`El usuario presionó la tecla ${event.key}`);
-  }
   images: { src: string; title: string }[] = [];
   selectedImage?: { src: string; title: string };
 
   constructor(private imageService: ImageService) {}
 
   ngOnInit() {
-    this.images = this.imageService.getImages();
+    const tmdbConfig = this.imageService.getTmdbConfig();
+    this.imageService.getImagesFromTMDB().subscribe((data) => {
+      this.images = data.results.map((movie: any) => ({
+        src: `${tmdbConfig.imageBaseUrl}/${tmdbConfig.defaultImageSize}${movie.poster_path}`,
+        title: movie.title || movie.name,
+      }));
+    });
   }
 
   showImage(img: { src: string; title: string }) {

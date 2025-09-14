@@ -1,13 +1,45 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>AngularGallery</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Visor de Películas - Angular Demo</title>
+
+    <!-- Meta descripción para SEO -->
+    <meta
+      name="description"
+      content="Aplicación Angular para demostrar elementos estáticos, dinámicos e integración con API de TMDB"
+    />
+
+    <!-- Favicon básico -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    <!-- Fuente de Google Fonts para mejor tipografía -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS base de la aplicación -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- 
+    Elemento raíz donde Angular montará la aplicación
+    El selector 'app-root' corresponde al componente principal definido en app.ts
+  -->
+    <app-root>
+      <!-- Contenido de carga mientras Angular inicializa -->
+      <div class="loading-container">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">Cargando Mini Visor de Películas...</p>
+      </div>
+    </app-root>
+
+    <!-- 
+    Scripts de Angular se inyectarán automáticamente aquí durante el build
+    En desarrollo, Angular CLI maneja la carga de módulos
+  --></body>
 </html>
