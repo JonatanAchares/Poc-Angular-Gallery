@@ -31,3 +31,9 @@
   border: 2px solid #1976d2;
   border-radius: 8px;
 }
+
+input {
+  margin: 1rem;
+  padding: 8px;
+  width: 15rem;
+}

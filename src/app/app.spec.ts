@@ -1,3 +1,9 @@
+/**
+ * Los archivos .spec.ts se generan para tests unitarios escritos
+ * con Jasmine(framework de testing) y ejecutados con Karma (test
+ * runner que viene configurado por defecto en Angular)
+ * Se podrían borrar si no vamos a hacer testing automatizado
+ */
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
 
