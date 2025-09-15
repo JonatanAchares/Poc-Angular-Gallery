@@ -1,59 +1,58 @@
-# AngularGallery
+# Poc-Angular-Gallery
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.1.
+Galería de películas usando Angular Standalone y la API de TMDB.
 
-## Development server
+## Requisitos
 
-To start a local development server, run:
+- Node.js >= 18
+- Angular CLI (`npm install -g @angular/cli`)
 
-```bash
+## Instalación
+
+1. Clona el repositorio:
+
+   ```sh
+   git clone https://github.com/tu-usuario/poc-angular-gallery.git
+   cd poc-angular-gallery
+   ```
+
+2. Instala las dependencias:
+
+   ```sh
+   npm install
+   ```
+
+3. Configura la clave de la API de TMDB:
+   - Copia el archivo de ejemplo:
+     ```sh
+     cp src/environments/environment.example.ts src/environments/environment.ts
+     ```
+   - Ingresa tu propia clave de TMDB en el campo `apiKey` del archivo `src/environments/environment.ts`.
+   - Si ya tienes el archivo y la clave, puedes omitir este paso.
+
+## Ejecución
+
+Inicia el servidor de desarrollo:
+
+```sh
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+La aplicación estará disponible en [http://localhost:4200](http://localhost:4200).
 
-## Code scaffolding
+## Uso
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- La galería muestra posters de películas populares obtenidos desde TMDB.
+- Haz clic en un poster para ver la vista previa.
+- Puedes marcar películas como favoritas.
 
-```bash
-ng generate component component-name
-```
+## Estructura del Proyecto
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- `src/app/components/gallery/`: Componente principal de la galería.
+- `src/app/services/image.service.ts`: Servicio para obtener imágenes de TMDB.
+- `src/environments/environment.ts`: Configuración de la API y entorno.
 
-```bash
-ng generate --help
-```
+## Notas
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- No subas tu clave privada de TMDB a repositorios públicos.
+- Para obtener una clave gratuita, regístrate en [TMDB](https://www.themoviedb.org/documentation/api).
