@@ -1,12 +1,35 @@
+<!-- src/components/gallery/gallery.html -->
 <div class="gallery">
   <div class="card" *ngFor="let img of images" (click)="showImage(img)">
-    <img [src]="img.src" [alt]="img.title" />
+    <div class="movie-poster">
+      <img [src]="img.src" [alt]="img.title" />
+      <button 
+        class="favorite-btn"
+        [class.is-favorite]="isFavorite(img)"
+        (click)="toggleFavorite(img, $event)"
+        [title]="isFavorite(img) ? 'Quitar de favoritos' : 'Agregar a favoritos'"
+      >
+        <span class="heart-icon">{{ isFavorite(img) ? '❤️' : '🤍' }}</span>
+      </button>
+    </div>
     <p>{{ img.title }}</p>
   </div>
 </div>
 
 <div class="preview" *ngIf="selectedImage">
   <h3>Vista previa</h3>
-  <img [src]="selectedImage.src" [alt]="selectedImage.title" />
-  <p>{{ selectedImage.title }}</p>
+  <div class="preview-content">
+    <img [src]="selectedImage.src" [alt]="selectedImage.title" />
+    <div class="preview-info">
+      <p>{{ selectedImage.title }}</p>
+      <button 
+        class="favorite-btn-large"
+        [class.is-favorite]="isFavorite(selectedImage)"
+        (click)="toggleFavorite(selectedImage, $event)"
+      >
+        <span class="heart-icon">{{ isFavorite(selectedImage) ? '❤️' : '🤍' }}</span>
+        {{ isFavorite(selectedImage) ? 'Quitar de favoritos' : 'Agregar a favoritos' }}
+      </button>
+    </div>
+  </div>
 </div>

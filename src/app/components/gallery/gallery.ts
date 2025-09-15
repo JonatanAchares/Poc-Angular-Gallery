@@ -1,6 +1,8 @@
+// src/components/gallery/gallery.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageService } from '../../services/image.service';
+import { FavoritesService, Movie } from '../../services/favorites.service';
 
 @Component({
   selector: 'app-gallery',
@@ -10,10 +12,13 @@ import { ImageService } from '../../services/image.service';
   styleUrls: ['./gallery.css'],
 })
 export class GalleryComponent {
-  images: { src: string; title: string }[] = [];
-  selectedImage?: { src: string; title: string };
+  images: Movie[] = [];
+  selectedImage?: Movie;
 
-  constructor(private imageService: ImageService) {}
+  constructor(
+    private imageService: ImageService,
+    private favoritesService: FavoritesService
+  ) {}
 
   ngOnInit() {
     const tmdbConfig = this.imageService.getTmdbConfig();
@@ -25,7 +30,17 @@ export class GalleryComponent {
     });
   }
 
-  showImage(img: { src: string; title: string }) {
+  showImage(img: Movie) {
     this.selectedImage = img;
+  }
+
+  toggleFavorite(movie: Movie, event: Event) {
+    // Prevenir que se abra la vista previa al hacer clic en el botón de favoritos
+    event.stopPropagation();
+    this.favoritesService.toggleFavorite(movie);
+  }
+
+  isFavorite(movie: Movie): boolean {
+    return this.favoritesService.isFavorite(movie);
   }
 }

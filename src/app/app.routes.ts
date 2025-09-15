@@ -1,8 +1,6 @@
+// src/app.routes.ts
 import { Routes } from '@angular/router';
 
-/**
- * Establezco como ruta default que se vea la galería dentro de home
- */
 export const routes: Routes = [
   {
     path: '',
@@ -11,4 +9,20 @@ export const routes: Routes = [
       return import('./home/home').then((m) => m.HomeComponent);
     },
   },
+  {
+    path: 'gallery',
+    loadComponent: () => {
+      return import('./components/gallery/gallery').then((m) => m.GalleryComponent);
+    },
+  },
+  {
+    path: 'favorites',
+    loadComponent: () => {
+      return import('./components/favorites/favorites').then((m) => m.FavoritesComponent);
+    },
+  },
+  {
+    path: '**',
+    redirectTo: '',
+  }
 ];
