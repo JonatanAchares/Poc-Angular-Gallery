@@ -22,13 +22,13 @@ export class GalleryComponent {
     private favoritesService: FavoritesService
   ) {}
 
-  ngOnInit() {
+  ngOnInit() {// <-- Devuelve un observable de RxJS
     const tmdbConfig = this.imageService.getTmdbConfig();
     this.imageService.getImagesFromTMDB().subscribe((data) => {
       this.images = data.results.map((movie: any) => ({
         src: `${tmdbConfig.imageBaseUrl}/${tmdbConfig.defaultImageSize}${movie.poster_path}`,
         title: movie.title || movie.name,
-      }));// <-- tema observables
+      }));
     });
   }
 
