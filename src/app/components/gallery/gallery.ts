@@ -6,7 +6,9 @@ import { FavoritesService, Movie } from '../../services/favorites.service';
 
 @Component({
   selector: 'app-gallery',
-  standalone: true,
+
+  standalone: true,//          " gallery.ts es la lógica del componente galería "
+
   imports: [CommonModule],
   templateUrl: './gallery.html',
   styleUrls: ['./gallery.css'],
@@ -26,7 +28,7 @@ export class GalleryComponent {
       this.images = data.results.map((movie: any) => ({
         src: `${tmdbConfig.imageBaseUrl}/${tmdbConfig.defaultImageSize}${movie.poster_path}`,
         title: movie.title || movie.name,
-      }));
+      }));// <-- tema observables
     });
   }
 

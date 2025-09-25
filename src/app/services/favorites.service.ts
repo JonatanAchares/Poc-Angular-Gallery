@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 
 export interface Movie {
   src: string;
-  title: string;
+  title: string;          // <-- " Aquí una interface de TypeScript "
   id?: string; // Para identificar películas únicas
 }
 

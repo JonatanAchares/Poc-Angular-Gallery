@@ -29,7 +29,8 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptors([])),
+    provideHttpClient(withInterceptors([])),// " Acá se importa HttpClient y quedaron
+                                // interceptores vacíos debido que al final no usamos"
     {
       provide: 'TMDB_CONFIG',
       useValue: {

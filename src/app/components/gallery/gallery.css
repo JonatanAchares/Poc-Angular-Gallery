@@ -5,7 +5,8 @@
   gap: 1rem;
   justify-content: center;
   margin-top: 20px;
-}
+
+}                       /* " gallery.css son los estilos componente galería " */
 
 .card {
   border: 1px solid #ccc;

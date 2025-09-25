@@ -5,6 +5,8 @@ describe('GalleryComponent', () => {
   let component: GalleryComponent;
   let fixture: ComponentFixture<GalleryComponent>;
 
+//                  " gallery.spec.ts es un archivo de pruebas unitarias de la galería "
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [GalleryComponent]   // ✅ usamos imports en vez de declarations
